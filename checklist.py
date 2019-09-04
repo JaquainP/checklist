@@ -35,9 +35,13 @@ def select(function_code):
         read(item_index)
     elif function_code =="p":
         list_all_items()
+    elif function_code == "Q":
+        # This is where we want to stop our loop
+        return False
     else:
-        print("unknown option")
-
+        #Catch all
+        print("Unknown Option")
+    return True
 
 
 def test():
@@ -55,8 +59,9 @@ def test():
     select("c")
     list_all_items()
     select("r")
-
-
-    # Add your testing code here
     list_all_items()
-test()
+running = True
+while running:
+    selection = input(
+        "Press C to add to list, R to Read from list and P to display list")
+    running = select(selection)
